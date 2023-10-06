@@ -3,10 +3,11 @@ from unittest.mock import patch
 from io import StringIO
 import hello
 
+
 class TestHello(unittest.TestCase):
 
     @patch("sys.stdout", StringIO("Hello World!"))
-    def test_hello(self):
+    def test_hello(self) -> None:
         with patch("sys.stdout", new_callable=StringIO) as mock_output:
             # pylint: disable=no-member
             hello.main()
